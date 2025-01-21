@@ -5,11 +5,11 @@
  *
  * This file is used to markup the public-facing aspects of the plugin.
  *
- * @link       http://example.com
+ * @link       https://github.com/rotaract/wp-roundhousekick
  * @since      1.0.0
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/public/partials
+ * @package    WP_Roundhousekick
+ * @subpackage WP_Roundhousekick/public/partials
  */
 ?>
 

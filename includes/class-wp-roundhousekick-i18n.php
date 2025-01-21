@@ -6,11 +6,11 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       http://example.com
+ * @link       https://github.com/rotaract/wp-roundhousekick
  * @since      1.0.0
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @package    WP_Roundhousekick
+ * @subpackage WP_Roundhousekick/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
- * @author     Your Name <email@example.com>
+ * @package    WP_Roundhousekick
+ * @subpackage WP_Roundhousekick/includes
+ * @author     Ressort IT-Entwicklung - Rotaract Deutschland <it-entwicklung@rotaract.de>
  */
-class Plugin_Name_i18n {
+class WP_Roundhousekick_i18n {
 
 
 	/**
@@ -35,7 +35,7 @@ class Plugin_Name_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'plugin-name',
+			'wp-roundhousekick',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);
