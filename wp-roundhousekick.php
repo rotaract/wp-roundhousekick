@@ -13,7 +13,7 @@
  * @package           WP_Roundhousekick
  *
  * @wordpress-plugin
- * Plugin Name:       WordPress Plugin Boilerplate
+ * Plugin Name:       Rotaract WordPress Roundhousekick
  * Plugin URI:        https://github.com/rotaract/wp-roundhousekick
  * Description:       A WordPress Multisite Plugin for managing everything about Rotaract Germany Website Hosting.
  * Version:           1.0.0
