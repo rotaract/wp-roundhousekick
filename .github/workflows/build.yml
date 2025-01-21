@@ -22,7 +22,7 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          name:
+          name: wp-roundhousekick
           path: |
             ./*
             !tmp
