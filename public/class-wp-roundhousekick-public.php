@@ -100,4 +100,20 @@ class WP_Roundhousekick_Public {
 
 	}
 
+	/**
+	 * Return the Mail From Address for all outgoing emails.
+	 *
+	 * @return String Mail From Address for all outgoing emails
+	 * @since    1.0.0
+	 */
+	public function set_mail_sender(): string
+	{
+
+		if ( defined( 'MAIL_FROM_ADDRESS' ) && MAIL_FROM_ADDRESS ) {
+			return MAIL_FROM_ADDRESS;
+		}
+		return 'noreply@rotaract.de';
+
+	}
+
 }

@@ -109,12 +109,12 @@ class WP_Roundhousekick {
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wp-roundhousekick-i18n.php';
+//		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wp-roundhousekick-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-roundhousekick-admin.php';
+//		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-roundhousekick-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -137,9 +137,9 @@ class WP_Roundhousekick {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new WP_Roundhousekick_i18n();
+//		$plugin_i18n = new WP_Roundhousekick_i18n();
 
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+//		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
 	}
 
@@ -152,10 +152,10 @@ class WP_Roundhousekick {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new WP_Roundhousekick_Admin( $this->get_wp_roundhousekick(), $this->get_version() );
+//		$plugin_admin = new WP_Roundhousekick_Admin( $this->get_wp_roundhousekick(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+//		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+//		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
 	}
 
@@ -170,8 +170,10 @@ class WP_Roundhousekick {
 
 		$plugin_public = new WP_Roundhousekick_Public( $this->get_wp_roundhousekick(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+//		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+//		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+		$this->loader->add_filter( 'wp_mail_from', $plugin_public, 'set_mail_sender' );
 
 	}
 
