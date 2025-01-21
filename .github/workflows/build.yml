@@ -12,18 +12,13 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Greet the world
-        run: echo 'Hello World!'
-
+      - name: Check out code
+        uses: actions/checkout@v4
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          name: wp-roundhousekick
+          name: Build
+          if-no-files-found: error
           path: |
-            ./*
-            !tmp
-            !.*
+            ./

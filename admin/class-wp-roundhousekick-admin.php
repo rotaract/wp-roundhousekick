@@ -21,7 +21,6 @@
  * @author     Ressort IT-Entwicklung - Rotaract Deutschland <it-entwicklung@rotaract.de>
  */
 class WP_Roundhousekick_Admin {
-
 	/**
 	 * The ID of this plugin.
 	 *
@@ -60,7 +59,6 @@ class WP_Roundhousekick_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-
 		/**
 		 * This function is provided for demonstration purposes only.
 		 *
@@ -74,7 +72,6 @@ class WP_Roundhousekick_Admin {
 		 */
 
 		wp_enqueue_style( $this->wp_roundhousekick, plugin_dir_url( __FILE__ ) . 'css/wp-roundhousekick-admin.css', array(), $this->version, 'all' );
-
 	}
 
 	/**
@@ -83,7 +80,6 @@ class WP_Roundhousekick_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
 		/**
 		 * This function is provided for demonstration purposes only.
 		 *
@@ -97,7 +93,5 @@ class WP_Roundhousekick_Admin {
 		 */
 
 		wp_enqueue_script( $this->wp_roundhousekick, plugin_dir_url( __FILE__ ) . 'js/wp-roundhousekick-admin.js', array( 'jquery' ), $this->version, false );
-
 	}
-
 }

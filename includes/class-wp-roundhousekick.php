@@ -28,7 +28,6 @@
  * @author     Ressort IT-Entwicklung - Rotaract Deutschland <it-entwicklung@rotaract.de>
  */
 class WP_Roundhousekick {
-
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
 	 * the plugin.
@@ -78,7 +77,6 @@ class WP_Roundhousekick {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
 	}
 
 	/**
@@ -98,7 +96,6 @@ class WP_Roundhousekick {
 	 * @access   private
 	 */
 	private function load_dependencies() {
-
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
@@ -123,7 +120,6 @@ class WP_Roundhousekick {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wp-roundhousekick-public.php';
 
 		$this->loader = new WP_Roundhousekick_Loader();
-
 	}
 
 	/**
@@ -136,11 +132,9 @@ class WP_Roundhousekick {
 	 * @access   private
 	 */
 	private function set_locale() {
-
 //		$plugin_i18n = new WP_Roundhousekick_i18n();
 
 //		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-
 	}
 
 	/**
@@ -151,12 +145,10 @@ class WP_Roundhousekick {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-
 //		$plugin_admin = new WP_Roundhousekick_Admin( $this->get_wp_roundhousekick(), $this->get_version() );
 
 //		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 //		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
 	}
 
 	/**
@@ -167,14 +159,12 @@ class WP_Roundhousekick {
 	 * @access   private
 	 */
 	private function define_public_hooks() {
-
 		$plugin_public = new WP_Roundhousekick_Public( $this->get_wp_roundhousekick(), $this->get_version() );
 
 //		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 //		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 		$this->loader->add_filter( 'wp_mail_from', $plugin_public, 'set_mail_sender' );
-
 	}
 
 	/**
@@ -216,5 +206,4 @@ class WP_Roundhousekick {
 	public function get_version() {
 		return $this->version;
 	}
-
 }

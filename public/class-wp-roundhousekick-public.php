@@ -21,7 +21,6 @@
  * @author     Ressort IT-Entwicklung - Rotaract Deutschland <it-entwicklung@rotaract.de>
  */
 class WP_Roundhousekick_Public {
-
 	/**
 	 * The ID of this plugin.
 	 *
@@ -48,10 +47,8 @@ class WP_Roundhousekick_Public {
 	 * @param      string    $version    The version of this plugin.
 	 */
 	public function __construct( $wp_roundhousekick, $version ) {
-
 		$this->wp_roundhousekick = $wp_roundhousekick;
 		$this->version = $version;
-
 	}
 
 	/**
@@ -60,7 +57,6 @@ class WP_Roundhousekick_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-
 		/**
 		 * This function is provided for demonstration purposes only.
 		 *
@@ -74,7 +70,6 @@ class WP_Roundhousekick_Public {
 		 */
 
 		wp_enqueue_style( $this->wp_roundhousekick, plugin_dir_url( __FILE__ ) . 'css/wp-roundhousekick-public.css', array(), $this->version, 'all' );
-
 	}
 
 	/**
@@ -83,7 +78,6 @@ class WP_Roundhousekick_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
 		/**
 		 * This function is provided for demonstration purposes only.
 		 *
@@ -97,7 +91,6 @@ class WP_Roundhousekick_Public {
 		 */
 
 		wp_enqueue_script( $this->wp_roundhousekick, plugin_dir_url( __FILE__ ) . 'js/wp-roundhousekick-public.js', array( 'jquery' ), $this->version, false );
-
 	}
 
 	/**
@@ -108,12 +101,9 @@ class WP_Roundhousekick_Public {
 	 */
 	public function set_mail_sender(): string
 	{
-
 		if ( defined( 'MAIL_FROM_ADDRESS' ) && MAIL_FROM_ADDRESS ) {
 			return MAIL_FROM_ADDRESS;
 		}
 		return 'noreply@rotaract.de';
-
 	}
-
 }

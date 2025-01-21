@@ -74,9 +74,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wp-roundhousekick.php';
  * @since    1.0.0
  */
 function run_wp_roundhousekick() {
-
 	$plugin = new WP_Roundhousekick();
 	$plugin->run();
-
 }
 run_wp_roundhousekick();

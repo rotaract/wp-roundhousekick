@@ -2,24 +2,43 @@
 name: Reviewdog
 "on":
   pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
+
   yamllint:
     name: runner / yamllint
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: yamllint
         uses: reviewdog/action-yamllint@v1
         with:
           reporter: github-pr-review
+
   detect-secrets:
     name: runner / detect-secrets
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: detect-secrets
         uses: reviewdog/action-detect-secrets@v0
         with:
           reporter: github-pr-review
+
+  languagetool:
+    name: runner / languagetool
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: languagetool
+        uses: reviewdog/action-languagetool@v1
+        with:
+          reporter: github-pr-review
+          level: info

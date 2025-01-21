@@ -21,7 +21,6 @@
  * @author     Ressort IT-Entwicklung - Rotaract Deutschland <it-entwicklung@rotaract.de>
  */
 class WP_Roundhousekick_Deactivator {
-
 	/**
 	 * Short Description. (use period)
 	 *
@@ -30,7 +29,5 @@ class WP_Roundhousekick_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-
 	}
-
 }

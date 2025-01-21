@@ -1,4 +1,4 @@
-= GitHub Template: WordPress Plugin Boilerplate
+= WP Roundhousekick
 Rotaract Germany
 
 ifdef::env-github[]
@@ -11,92 +11,80 @@ endif::[]
 
 :badge_url: https://img.shields.io
 :custom_badge: {badge_url}/badge
-:slug: github-template
+:slug: wp-roundhousekick
 :repo_path: rotaract/{slug}
 
 :year: 2025
 
 // General Badges
 image:{custom_badge}/Open_Source-❤-orange[Open Source, link="https://opensource.org"]
-image:{custom_badge}/Made_by-Rotaract_Germany-d41367[Rotaract Germany, link="https://rotaract.de"] +
-//   * Coding Style
-//     image:{custom_badge}/code_style-WordPress-brightgreen[Code Style, link="https://make.wordpress.org/core/handbook/best-practices/coding-standards/"]
+image:{custom_badge}/Made_by-Rotaract_Germany-d41367[Rotaract Germany, link="https://rotaract.de"]
+image:{badge_url}/badge/code_style-WordPress-brightgreen[Code Style, link="https://make.wordpress.org/core/handbook/best-practices/coding-standards/"] +
 //   * Framework
 //   * Keywords
 // Status Badges
-//   * Build Status
-//   * Maintenance
+image:https://github.com/{repo_path}/actions/workflows/build.yml/badge.svg[Build Plugin ZIP, link="https://github.com/{repo_path}/actions/workflows/build.yml"]
 image:https://img.shields.io/maintenance/yes/{year}[Maintenance Status]
-//   * Website up
-//     image:https://img.shields.io/website?url=https%3A%2F%2Frotaract.de[Website Status, link="https://rotaract.de"]
-
-// No Badges concerning
-//   * Deployment status (inappropriate placement)
-//   * License (own file and #Legal Notices at ending of README)
-//   * number of contributors (irrelevant)
-//   * Version (right sidebar in GitHub)
-//   * System / Version Requirements (own section in README)
 
 == 🔎 Overview
 
-A short description (one line).
+This plugin is intended to simplify the administration and configuration of Rotaract Hosting.
 
-Longer description specifying:
-
-* Motivation
-* Purpose
-* Target devices / framework / ...
-* Used technology
-
-TIP: Do not forget the hyperlinks.
-
-== ⚙️ WordPress Boilerplate
-
-(See https://github.com/DevinVinson/WordPress-Plugin-Boilerplate)
-
-The Boilerplate can be installed directly into your plugins folder "as-is". You will want to rename it and the classes inside of it to fit your needs. For example, if your plugin is named 'example-me' then:
-
-* [ ] rename files from plugin-name to example-me
-* [ ] change plugin_name to example_me
-* [ ] change plugin-name to example-me
-* [ ] change Plugin_Name to Example_Me
-* [ ] change PLUGIN_NAME_ to EXAMPLE_ME_
-
-It's safe to activate the plugin at this point. Because the Boilerplate has no real functionality there will be no menu items, meta boxes, or custom post types added until you write the code.
-
-== ✅ Checklist
-
-* [ ] Update slug (+ repo_path) in README and CHANGELOG
-* [ ] Change README title
-* [ ] Write description of repo
-* [ ] Update issue templates
-* [ ] Change mail address in code of conduct
-* [ ] Create .github/dependabot.yml
-* [ ] Complete build.yml workflow
-* [ ] (optional) Change license in LICENSE and README's Legal Notices
+Depite this narrow and internal use case, other might find some aspects interesting or helpful.
 
 == ⭐ Features
 
-* Feature 1
-* Feature 2
+* Sets sending mail address
 
-== 🛠️ Setup / Build
+=== Email Sender Address
 
+WordPress uses PHPMailer to send emails.
+This library itself by default uses the MTA at port 25 on `localhost`.
+
+== ⚙️ Installation
+
+// TODO: List any prerequisites needed before installing your project (e.g., software, libraries).
 .🧰 Prerequisites
+[NOTE]
+--
+* latest WordPress with latest PHP version
+--
+// TODO: Provide step-by-step instructions to install your project.
+
+== 🎚️ Configuration
+
+// TODO: Detail how to configure the project after installation.
+
+== 🖱️ Usage
+
+// TODO: Explain how to use the project, including examples and common use cases.
+
+// TODO: Add Step-by-Step Guide for Use Cases
+
+== ❓ FAQ
+
+== 🤝 Contributing
+
+We welcome contributions!
+Please read our xref:CONTRIBUTING.adoc[Contributing Guidelines] before submitting a pull request.
+
+=== 🆘 Support
+
+If you encounter any issues, please open an https://github.com/{repo_path}/issues[issue] on our GitHub repository or contact the Rotaract Germany team at _oss at rotaract dot de_.
+
+=== Project Structure
+
+=== 🛠️ Setup / Build
+
+.📦 Dependencies
 [NOTE]
 --
 * ...
 --
 
-== ⚙️ Installation
+=== 📃 Code of Conduct
 
-== 🎚️ Configuration
-
-== 🖱️ Usage
-
-== 📃 Code of Conduct
-
-Please note that this project is release with the link:CODE_OF_CONDUCT.adoc[Contributor Covenant Code of Conduct].
+This project is governed by the link:CODE_OF_CONDUCT.adoc[Contributor Covenant Code of Conduct].
 By contributing to this project, you agree to abide by its terms.
 
 == ⚖️ Legal Notices
@@ -105,9 +93,9 @@ Copyright © {year}, Rotaract Deutschland
 
 Licensed under European Union Public License 1.2 (EUPL-1.2).
 
-_Rotary_, _Rotaract_, and _Interact_ are trademarks or registered trademarks of Rotary International and are used with the permission of Rotary International.
-Other trademarks not owned by Rotary International are the property of their respective owners.
-The license above does not grant any rights under trademark law and all such rights are reserved.
-Modified versions must be renamed to avoid use of any Rotary International trademarks, including but not limited to _Rotary_, _Rotaract_, and _Interact_.
+_Rotary_, _Rotaract_, and _Interact_ are trademarks or registered trademarks of Rotary International.
+This license does not grant any rights under trademark law.
+All such rights are reserved.
+Modified versions must be renamed to avoid using any Rotary International trademarks, including _Rotary_, _Rotaract_, and _Interact_.
 
 All Rotary, Rotaract, and Interact logos and graphics are under copyright.
