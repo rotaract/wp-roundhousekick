@@ -111,7 +111,7 @@ class WP_Roundhousekick {
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-//		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-roundhousekick-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-roundhousekick-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -145,10 +145,20 @@ class WP_Roundhousekick {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-//		$plugin_admin = new WP_Roundhousekick_Admin( $this->get_wp_roundhousekick(), $this->get_version() );
+		$plugin_admin = new WP_Roundhousekick_Admin( $this->get_wp_roundhousekick(), $this->get_version() );
 
 //		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 //		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+
+		/*
+		 * Feature: Unfiltered MU
+		 */
+		$this->loader->add_action( 'init', $plugin_admin, 'um_kses_init', 11 );
+		$this->loader->add_action( 'set_current_user', $plugin_admin, 'um_kses_init', 11 );
+		if ( str_contains( __FILE__, MUPLUGINDIR ) ) {
+			$this->loader->add_action( 'init', $plugin_admin, 'um_unfilter_roles_one_time', 1 );
+		}
+		$this->loader->add_filter( 'map_meta_cap', $plugin_admin, 'um_unfilter_multisite', 10, 2 );
 	}
 
 	/**

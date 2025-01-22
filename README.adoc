@@ -41,6 +41,14 @@ Depite this narrow and internal use case, other might find some aspects interest
 WordPress uses PHPMailer to send emails.
 This library itself by default uses the MTA at port 25 on `localhost`.
 
+=== Unfiltered MU
+
+Adds the following capabilities to roles "`Administrator`" and "`Editor`" so that content posted by users with those roles is not filtered by KSES; Embeds, Iframe, etc. are preserved:
+
+* `edit_css`
+* `manage_privacy_options`
+* `unfiltered_html`
+
 == ⚙️ Installation
 
 // TODO: List any prerequisites needed before installing your project (e.g., software, libraries).
