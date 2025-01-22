@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The admin-specific functionality of the plugin.
  *
@@ -43,14 +42,13 @@ class WP_Roundhousekick_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $wp_roundhousekick       The name of this plugin.
-	 * @param      string    $version    The version of this plugin.
+	 * @param      string $wp_roundhousekick       The name of this plugin.
+	 * @param      string $version    The version of this plugin.
 	 */
 	public function __construct( $wp_roundhousekick, $version ) {
 
 		$this->wp_roundhousekick = $wp_roundhousekick;
-		$this->version = $version;
-
+		$this->version           = $version;
 	}
 
 	/**
@@ -115,15 +113,24 @@ class WP_Roundhousekick_Admin {
 	 * @since    1.1.0
 	 */
 	public static function um_unfilter_roles() {
-		// Makes sure $wp_roles is initialized
+		// Makes sure $wp_roles is initialized.
 		get_role( 'administrator' );
 
 		global $wp_roles;
-		// Dont use get_role() wrapper, it doesn't work as a one off.
-		// (get_role does not properly return as reference)
+		// Dont use get_role() wrapper, it doesn't work as a one-off.
+		// (get_role does not properly return as reference).
 		$wp_roles->role_objects['administrator']->add_cap( 'unfiltered_html' );
 		$wp_roles->role_objects['editor']->add_cap( 'unfiltered_html' );
 	}
+
+	/**
+	 * If you install this plugin in wp-content/plugins, the following code
+	 * will add the cap on plugin activation, and remove it on deactivation.
+	 * It will be a per-blog setting (the plugin will need to be activated on
+	 * each blog you want the unfiltered_html cap).
+	 *
+	 * @since    1.1.0
+	 */
 	public static function um_refilter_roles() {
 		get_role( 'administrator' );
 		global $wp_roles;
@@ -141,18 +148,17 @@ class WP_Roundhousekick_Admin {
 	 *
 	 * @since    1.1.0
 	 */
-
 	public function um_unfilter_roles_one_time() {
 		get_role( 'administrator' );
 
 		global $wp_roles, $current_user;
 
-		$use_db = $wp_roles->use_db;
+		$use_db           = $wp_roles->use_db;
 		$wp_roles->use_db = false; // Don't store in db.  Just do a one off mod to the role.
-		$this->um_unfilter_roles(); // Add caps for this page load only: - ^^^^^^^
+		$this->um_unfilter_roles(); // Add caps for this page load only: - ^^^^^^^.
 		$wp_roles->use_db = $use_db;
 
-		if ( is_user_logged_in() ) { // Re-prime the current user's caps
+		if ( is_user_logged_in() ) { // Re-prime the current user's caps.
 			$current_user->for_site();
 		}
 	}
@@ -160,15 +166,18 @@ class WP_Roundhousekick_Admin {
 	/**
 	 * Add the unfiltered_html capability back in to WordPress 5.8 multisite.
 	 *
+	 * @param string $caps Caps.
+	 * @param string $cap  Cap.
+	 *
 	 * @since    1.1.0
 	 */
 	public function um_unfilter_multisite( $caps, $cap ) {
 		$map_caps = array(
 			'edit_css',
 			'manage_privacy_options',
-			'unfiltered_html'
+			'unfiltered_html',
 		);
-		if ( in_array( $cap, $map_caps ) ) {
+		if ( in_array( $cap, $map_caps, true ) ) {
 			$caps = array( 'unfiltered_html' );
 		}
 		return $caps;

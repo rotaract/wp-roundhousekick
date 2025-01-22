@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The file that defines the core plugin class
  *
@@ -85,7 +84,7 @@ class WP_Roundhousekick {
 	 * Include the following files that make up the plugin:
 	 *
 	 * - WP_Roundhousekick_Loader. Orchestrates the hooks of the plugin.
-	 * - WP_Roundhousekick_i18n. Defines internationalization functionality.
+	 * - WP_Roundhousekick_I18n. Defines internationalization functionality.
 	 * - WP_Roundhousekick_Admin. Defines all hooks for the admin area.
 	 * - WP_Roundhousekick_Public. Defines all hooks for the public side of the site.
 	 *
@@ -100,24 +99,24 @@ class WP_Roundhousekick {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wp-roundhousekick-loader.php';
+		require_once plugin_dir_path( __DIR__ ) . 'includes/class-wp-roundhousekick-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-//		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wp-roundhousekick-i18n.php';
+		require_once plugin_dir_path( __DIR__ ) . 'includes/class-wp-roundhousekick-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-roundhousekick-admin.php';
+		require_once plugin_dir_path( __DIR__ ) . 'admin/class-wp-roundhousekick-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wp-roundhousekick-public.php';
+		require_once plugin_dir_path( __DIR__ ) . 'public/class-wp-roundhousekick-public.php';
 
 		$this->loader = new WP_Roundhousekick_Loader();
 	}
@@ -125,16 +124,16 @@ class WP_Roundhousekick {
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the WP_Roundhousekick_i18n class in order to set the domain and to register the hook
+	 * Uses the WP_Roundhousekick_I18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
 	 * @access   private
 	 */
 	private function set_locale() {
-//		$plugin_i18n = new WP_Roundhousekick_i18n();
+		$plugin_i18n = new WP_Roundhousekick_I18n();
 
-//		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 	}
 
 	/**
@@ -147,22 +146,19 @@ class WP_Roundhousekick {
 	private function define_admin_hooks() {
 		$plugin_admin = new WP_Roundhousekick_Admin( $this->get_wp_roundhousekick(), $this->get_version() );
 
-//		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-//		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
 		/*
 		 * Feature: Unfiltered MU
 		 */
 		$this->loader->add_action( 'init', $plugin_admin, 'um_kses_init', 11 );
 		$this->loader->add_action( 'set_current_user', $plugin_admin, 'um_kses_init', 11 );
-		if ( str_contains( __FILE__, MUPLUGINDIR ) ) {
+		if ( str_contains( __FILE__, WPMU_PLUGIN_DIR ) ) {
 			$this->loader->add_action( 'init', $plugin_admin, 'um_unfilter_roles_one_time', 1 );
 		}
 		$this->loader->add_filter( 'map_meta_cap', $plugin_admin, 'um_unfilter_multisite', 10, 2 );
 	}
 
 	/**
-	 * Register all of the hooks related to the public-facing functionality
+	 * Register all the hooks related to the public-facing functionality
 	 * of the plugin.
 	 *
 	 * @since    1.0.0
@@ -170,9 +166,6 @@ class WP_Roundhousekick {
 	 */
 	private function define_public_hooks() {
 		$plugin_public = new WP_Roundhousekick_Public( $this->get_wp_roundhousekick(), $this->get_version() );
-
-//		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-//		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 		$this->loader->add_filter( 'wp_mail_from', $plugin_public, 'set_mail_sender' );
 	}

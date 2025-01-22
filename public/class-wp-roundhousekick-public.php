@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The public-facing functionality of the plugin.
  *
@@ -43,12 +42,12 @@ class WP_Roundhousekick_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $wp_roundhousekick       The name of the plugin.
-	 * @param      string    $version    The version of this plugin.
+	 * @param      string $wp_roundhousekick       The name of the plugin.
+	 * @param      string $version    The version of this plugin.
 	 */
 	public function __construct( $wp_roundhousekick, $version ) {
 		$this->wp_roundhousekick = $wp_roundhousekick;
-		$this->version = $version;
+		$this->version           = $version;
 	}
 
 	/**
@@ -99,8 +98,7 @@ class WP_Roundhousekick_Public {
 	 * @return String Mail From Address for all outgoing emails
 	 * @since    1.0.0
 	 */
-	public function set_mail_sender(): string
-	{
+	public function set_mail_sender(): string {
 		if ( defined( 'MAIL_FROM_ADDRESS' ) && MAIL_FROM_ADDRESS ) {
 			return MAIL_FROM_ADDRESS;
 		}
