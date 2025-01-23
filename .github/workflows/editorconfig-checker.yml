@@ -14,8 +14,7 @@ jobs:
   editorconfig:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: Install editorconfig-checker
         uses: editorconfig-checker/action-editorconfig-checker@main
       - name: Run editorconfig-checker

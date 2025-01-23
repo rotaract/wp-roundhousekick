@@ -17,12 +17,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-        uses: actions/checkout@v4
-      - name: Upload
-        uses: actions/upload-artifact@v4
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v4
         with:
-          name: wp-roundhousekick
+          name: plugin-name
           if-no-files-found: error
           path: |
             ./
+            !CODE_OF_CONDUCT.adoc
+            !devenv.*
+            !phpcs.xml
