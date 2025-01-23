@@ -1,14 +1,14 @@
 # SPDX-FileCopyrightText: 2025 Benno Bielmeier
 #
 # SPDX-License-Identifier: CC0-1.0
-
+---
 name: Build
 
-on:
+"on":
   push:
-    branch: [ master ]
+    branch: [master]
   pull_request:
-    branch: [ master ]
+    branch: [master]
 
 permissions:
   contents: read
@@ -22,7 +22,7 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          name: Build
+          name: wp-roundhousekick
           if-no-files-found: error
           path: |
             ./
