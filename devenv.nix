@@ -11,7 +11,9 @@
 }:
 
 {
-  packages = [ pkgs.reuse ];
+  packages = builtins.attrValues {
+    inherit (pkgs) reuse yamllint editorconfig-checker;
+  };
 
   languages = {
     javascript = {
