@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Benno Bielmeier
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 ---
 name: Feature request
 about: Suggest new functionality for this project

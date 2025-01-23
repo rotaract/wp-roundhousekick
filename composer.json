@@ -1,21 +1,29 @@
 {
 	"name": "rotaract/wp-roundhousekick",
 	"description": "A WordPress Multisite Plugin for managing everything about Rotaract Germany Website Hosting.",
-	"type": "project",
+	"type": "wordpress-plugin",
 	"keywords": [
 		"plugin",
 		"rotaract",
 		"wordpress",
 		"multisite"
 	],
-	"homepage": "https://github.com/rotaract/rotaract-appointments",
+	"homepage": "https://github.com/rotaract/wp-roundhousekick",
 	"readme": "README.adoc",
 	"license": "EUPL-1.2",
 	"authors": [
 		{
-			"name": "Rotaract Germany"
+			"name": "Niklas Zbick",
+			"role": "Developer"
+		},
+		{
+			"name": "Benno Bielmeier"
 		}
 	],
+	"support": {
+		"issues": "https://github.com/rotaract/wp-roundhousekick/issues",
+		"source": "https://github.com/rotaract/wp-roundhousekick"
+	},
 	"minimum-stability": "stable",
 	"require": {
 		"php": ">=8.1"
@@ -26,12 +34,10 @@
 	},
 	"require-dev": {
 		"wp-coding-standards/wpcs": "^3.1",
-		"phpcompatibility/php-compatibility": "^9.3"
+		"phpcompatibility/php-compatibility": "^9.3",
+		"editorconfig-checker/editorconfig-checker": "^10.6"
 	},
 	"config": {
-		"platform": {
-			"php": "8.4"
-		},
 		"allow-plugins": {
 			"dealerdirect/phpcodesniffer-composer-installer": true
 		}

@@ -1,4 +1,9 @@
 <?php
+
+// SPDX-FileCopyrightText: 2025 Niklas A. Zbick
+//
+// SPDX-License-Identifier: EUPL-1.2
+
 /**
  * Define the internationalization functionality
  *

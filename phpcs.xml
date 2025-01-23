@@ -1,4 +1,11 @@
 <?xml version="1.0"?>
+
+<!--
+SPDX-FileCopyrightText: 2025 Benno Bielmeier
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 <ruleset name="WordPress.Rotaract-DE">
 	<description>Rotaract Germany Coding Standard</description>
 
@@ -15,6 +22,6 @@
 		<exclude name="WordPress.PHP.DisallowShortTernary.Found"/>
 	</rule>
 
-	<config name="testVersion" value="8.0-"/>
+	<config name="testVersion" value="8.1-"/>
 	<rule ref="PHPCompatibility" />
 </ruleset>

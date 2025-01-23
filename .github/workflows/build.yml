@@ -1,10 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Benno Bielmeier
+#
+# SPDX-License-Identifier: CC0-1.0
+---
 name: Build
 
-on:
+"on":
   push:
-    branch: [ master ]
+    branch: [master]
   pull_request:
-    branch: [ master ]
+    branch: [master]
 
 permissions:
   contents: read
@@ -13,12 +17,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-        uses: actions/checkout@v4
-      - name: Upload
-        uses: actions/upload-artifact@v4
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v4
         with:
-          name: Build
+          name: plugin-name
           if-no-files-found: error
           path: |
             ./
+            !CODE_OF_CONDUCT.adoc
+            !devenv.*
+            !phpcs.xml

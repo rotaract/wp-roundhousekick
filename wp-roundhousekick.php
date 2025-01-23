@@ -1,4 +1,9 @@
 <?php
+
+// SPDX-FileCopyrightText: 2025 Niklas A. Zbick
+//
+// SPDX-License-Identifier: EUPL-1.2
+
 /**
  * The plugin bootstrap file
  *
@@ -16,12 +21,15 @@
  * Plugin URI:        https://github.com/rotaract/wp-roundhousekick
  * Description:       A WordPress Multisite Plugin for managing everything about Rotaract Germany Website Hosting.
  * Version:           1.1.0
- * Author:            Ressort IT-Entwicklung - Rotaract Deutschland
+ * Requires at leat:  6.0
+ * Requires PHP:      8.1
+ * Author:            Niklas A. Zbick
  * Author URI:        https://rotaract.de
  * License:           EUPL-1.2
  * License URI:       https://eupl.eu
  * Text Domain:       wp-roundhousekick
  * Domain Path:       /languages
+ * Network:           true
  */
 
 // If this file is called directly, abort.
