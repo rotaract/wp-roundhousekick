@@ -23,12 +23,13 @@
  * Version:           1.1.0
  * Requires at leat:  6.0
  * Requires PHP:      8.1
- * Author:            Ressort IT-Entwicklung - Rotaract Deutschland
+ * Author:            Niklas A. Zbick
  * Author URI:        https://rotaract.de
  * License:           EUPL-1.2
  * License URI:       https://eupl.eu
  * Text Domain:       wp-roundhousekick
  * Domain Path:       /languages
+ * Network:           true
  */
 
 // If this file is called directly, abort.
