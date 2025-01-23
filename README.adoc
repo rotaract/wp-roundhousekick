@@ -41,8 +41,13 @@ Depite this narrow and internal use case, other might find some aspects interest
 
 === Email Sender Address
 
+.Motivation
 WordPress uses PHPMailer to send emails.
 This library itself by default uses the MTA at port 25 on `localhost`.
+
+.Solution
+The domain of the sending email address is set to the domain of the main site of the multi-site network.
+Alternatively it can be overwritten via a config Parameter
 
 === Unfiltered MU
 
@@ -58,7 +63,8 @@ Adds the following capabilities to roles "`Administrator`" and "`Editor`" so tha
 .🧰 Prerequisites
 [NOTE]
 --
-* latest WordPress with latest PHP version
+* Latest WordPress
+* PHP version ≥ 8.1
 --
 // TODO: Provide step-by-step instructions to install your project.
 

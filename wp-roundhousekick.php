@@ -21,6 +21,8 @@
  * Plugin URI:        https://github.com/rotaract/wp-roundhousekick
  * Description:       A WordPress Multisite Plugin for managing everything about Rotaract Germany Website Hosting.
  * Version:           1.1.0
+ * Requires at leat:  6.0
+ * Requires PHP:      8.1
  * Author:            Ressort IT-Entwicklung - Rotaract Deutschland
  * Author URI:        https://rotaract.de
  * License:           EUPL-1.2
