@@ -12,7 +12,7 @@
 
 {
   packages = builtins.attrValues {
-    inherit (pkgs) reuse yamllint editorconfig-checker;
+    inherit (pkgs) reuse yamllint;
   };
 
   languages = {
