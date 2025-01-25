@@ -30,16 +30,19 @@
 	},
 	"scripts": {
 		"lint": "phpcs . --standard=phpcs.xml",
-		"fix": "phpcbf . --standard=phpcs.xml"
+		"fix": "phpcbf . --standard=phpcs.xml",
+		"doc": "phpdoc -d . -t docs"
 	},
 	"require-dev": {
 		"wp-coding-standards/wpcs": "^3.1",
 		"phpcompatibility/php-compatibility": "^9.3",
-		"editorconfig-checker/editorconfig-checker": "^10.6"
+		"editorconfig-checker/editorconfig-checker": "^10.6",
+		"phpdocumentor/shim": "^3.6"
 	},
 	"config": {
 		"allow-plugins": {
-			"dealerdirect/phpcodesniffer-composer-installer": true
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"phpdocumentor/shim": true
 		}
 	}
 }

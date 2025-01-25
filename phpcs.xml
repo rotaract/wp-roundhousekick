@@ -13,8 +13,11 @@ SPDX-License-Identifier: CC0-1.0
 
 	<config name="text_domain" value="wp-roundhousekick" />
 
+	<exclude-pattern>.devenv/</exclude-pattern>
+	<exclude-pattern>.phpdoc/</exclude-pattern>
 	<exclude-pattern>vendor/</exclude-pattern>
 	<exclude-pattern>node_modules/</exclude-pattern>
+	<exclude-pattern>docs/</exclude-pattern>
 	<exclude-pattern>images/</exclude-pattern>
 	<exclude-pattern>*.js</exclude-pattern>
 
