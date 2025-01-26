@@ -27,6 +27,7 @@ image:{badge_url}/badge/code_style-WordPress-brightgreen[Code Style, link="https
 //   * Keywords
 // Status Badges
 image:https://github.com/{repo_path}/actions/workflows/build.yml/badge.svg[Build Plugin ZIP, link="https://github.com/{repo_path}/actions/workflows/build.yml"]
+image:https://api.reuse.software/badge/github.com/rotaract/wp-roundhousekick[REUSE status, link=https://api.reuse.software/info/github.com/rotaract/wp-roundhousekick]
 image:https://img.shields.io/maintenance/yes/{year}[Maintenance Status]
 
 == 🔎 Overview
