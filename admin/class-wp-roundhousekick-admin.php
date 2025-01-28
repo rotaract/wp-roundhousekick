@@ -81,4 +81,12 @@ class WP_Roundhousekick_Admin {
 
 		WP_Roundhousekick_Mailer::network_settings_page();
 	}
+
+	/**
+	 * Handle network_admin_edit_mailer hook.
+	 */
+	public function network_admin_edit_mailer(): void {
+
+		WP_Roundhousekick_Mailer::save_settings();
+	}
 }

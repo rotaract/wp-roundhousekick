@@ -77,9 +77,6 @@ class WP_Roundhousekick_Mailer {
 	 * Builds the HTML for the appointments submenu page.
 	 */
 	public static function page_output(): void {
-
-		do_action( 'qm/debug', 'PAGE' );
-
 		// Check user capabilities.
 		if ( ! current_user_can( 'manage_network_options' ) ) {
 			return;
@@ -89,15 +86,13 @@ class WP_Roundhousekick_Mailer {
 
 		// Check if the user has submitted the settings.
 		// WordPress will add the "settings-updated" $_GET parameter to the URL.
-		if ( isset( $_GET['settings-updated'] ) ) { // phpcs:ignore
+		if ( isset( $_GET['updated'] ) ) { // phpcs:ignore
 			// Add settings saved message with the class of "updated".
 			add_settings_error( 'rotaract_messages', 'rotaract_message', __( 'Settings Saved', 'wp-roundhousekick' ), 'updated' );
 		}
 
 		// Show error/update messages.
 		settings_errors( 'rotaract_messages' );
-
-		do_action( 'qm/debug', 'PAGE 2' );
 
 		include 'page-mailer.php';
 	}

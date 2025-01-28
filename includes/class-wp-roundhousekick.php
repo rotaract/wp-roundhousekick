@@ -182,7 +182,7 @@ class WP_Roundhousekick {
 		/*
 		 * Feature: Mailer
 		 */
-		add_action( 'network_admin_edit_mailer', array( WP_Roundhousekick_Mailer::class, 'save_settings' ) );
+		$this->loader->add_action( 'network_admin_edit_mailer', $plugin_admin, 'network_admin_edit_mailer' );
 
 		/*
 		 * Feature: Unfiltered MU
