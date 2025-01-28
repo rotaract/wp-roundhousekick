@@ -10,12 +10,18 @@
  * This file is used to markup the admin-facing aspects of the plugin.
  *
  * @link       https://github.com/rotaract/wp-roundhousekick
- * @since      1.0.0
+ * @since      1.1.0
  *
  * @package    WP_Roundhousekick
- * @subpackage WP_Roundhousekick/admin/partials
+ * @subpackage WP_Roundhousekick/features/mailer
  */
 
 ?>
 
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->
+<form method="post" action="<?= add_query_arg( 'action', 'mailer', 'edit.php' ) ?>">
+	<?php
+		settings_fields( 'wp_roundhousekick' );
+		do_settings_sections( 'wp_roundhousekick_mailer' );
+		submit_button();
+	?>
+</form>

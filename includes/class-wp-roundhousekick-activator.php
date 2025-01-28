@@ -33,8 +33,8 @@ class WP_Roundhousekick_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-		require_once plugin_dir_path( __DIR__ ) . 'admin/class-wp-roundhousekick-admin.php';
-
-		WP_Roundhousekick_Admin::um_unfilter_roles();
+//		require_once plugin_dir_path( __DIR__ ) . 'admin/class-wp-roundhousekick-admin_unfiltered_mu.php';
+//
+//		WP_Roundhousekick_Admin_Unfiltered_MU::um_unfilter_roles();
 	}
 }

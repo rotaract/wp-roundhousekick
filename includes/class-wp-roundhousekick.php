@@ -40,7 +40,7 @@ class WP_Roundhousekick {
 	 * @access   protected
 	 * @var      WP_Roundhousekick_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
-	protected $loader;
+	protected WP_Roundhousekick_Loader $loader;
 
 	/**
 	 * The unique identifier of this plugin.
@@ -49,7 +49,7 @@ class WP_Roundhousekick {
 	 * @access   protected
 	 * @var      string    $wp_roundhousekick    The string used to uniquely identify this plugin.
 	 */
-	protected $wp_roundhousekick;
+	protected string $wp_roundhousekick;
 
 	/**
 	 * The current version of the plugin.
@@ -58,7 +58,7 @@ class WP_Roundhousekick {
 	 * @access   protected
 	 * @var      string    $version    The current version of the plugin.
 	 */
-	protected $version;
+	protected string $version;
 
 	/**
 	 * Define the core functionality of the plugin.
@@ -78,6 +78,7 @@ class WP_Roundhousekick {
 		$this->wp_roundhousekick = 'wp-roundhousekick';
 
 		$this->load_dependencies();
+		$this->load_features();
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
@@ -99,7 +100,7 @@ class WP_Roundhousekick {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function load_dependencies() {
+	private function load_dependencies(): void {
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
@@ -127,6 +128,30 @@ class WP_Roundhousekick {
 	}
 
 	/**
+	 * Load the required feature dependencies for this plugin.
+	 *
+	 * Include the following files that make up the plugin's admin area features:
+	 *
+	 * - WP_Roundhousekick_Loader. Orchestrates the hooks of the plugin.
+	 * - WP_Roundhousekick_I18n. Defines internationalization functionality.
+	 * - WP_Roundhousekick_Admin. Defines all hooks for the admin area.
+	 * - WP_Roundhousekick_Public. Defines all hooks for the public side of the site.
+	 *
+	 * @since    1.1.0
+	 * @access   private
+	 */
+	private function load_features(): void {
+		/**
+		 * The class responsible for Mailer feature.
+		 */
+		require_once plugin_dir_path( __DIR__ ) . 'features/mailer/class-wp-roundhousekick-mailer.php';
+		/**
+		 * The class responsible for Unfiltered MU feature.
+		 */
+//		require_once plugin_dir_path( __DIR__ ) . 'features/mailer/class-wp-roundhousekick-admin-unfiltered-mu.php';
+	}
+
+	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
 	 * Uses the WP_Roundhousekick_I18n class in order to set the domain and to register the hook
@@ -135,7 +160,7 @@ class WP_Roundhousekick {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function set_locale() {
+	private function set_locale(): void {
 		$plugin_i18n = new WP_Roundhousekick_I18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
@@ -148,18 +173,26 @@ class WP_Roundhousekick {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_admin_hooks() {
+	private function define_admin_hooks(): void {
 		$plugin_admin = new WP_Roundhousekick_Admin( $this->get_wp_roundhousekick(), $this->get_version() );
+
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_network_settings' );
+		$this->loader->add_action( 'network_admin_menu', $plugin_admin, 'network_settings_page' );
+
+		/*
+		 * Feature: Mailer
+		 */
+		add_action( 'network_admin_edit_mailer', array( WP_Roundhousekick_Mailer::class, 'save_settings' ) );
 
 		/*
 		 * Feature: Unfiltered MU
 		 */
-		$this->loader->add_action( 'init', $plugin_admin, 'um_kses_init', 11 );
-		$this->loader->add_action( 'set_current_user', $plugin_admin, 'um_kses_init', 11 );
-		if ( str_contains( __FILE__, WPMU_PLUGIN_DIR ) ) {
-			$this->loader->add_action( 'init', $plugin_admin, 'um_unfilter_roles_one_time', 1 );
-		}
-		$this->loader->add_filter( 'map_meta_cap', $plugin_admin, 'um_unfilter_multisite', 10, 2 );
+		//      $this->loader->add_action( 'init', $plugin_admin, 'um_kses_init', 11 );
+		//      $this->loader->add_action( 'set_current_user', $plugin_admin, 'um_kses_init', 11 );
+		//      if ( str_contains( __FILE__, WPMU_PLUGIN_DIR ) ) {
+		//          $this->loader->add_action( 'init', $plugin_admin, 'um_unfilter_roles_one_time', 1 );
+		//      }
+		//      $this->loader->add_filter( 'map_meta_cap', $plugin_admin, 'um_unfilter_multisite', 10, 2 );
 	}
 
 	/**
@@ -169,7 +202,7 @@ class WP_Roundhousekick {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_public_hooks() {
+	private function define_public_hooks(): void {
 		$plugin_public = new WP_Roundhousekick_Public( $this->get_wp_roundhousekick(), $this->get_version() );
 
 		$this->loader->add_filter( 'wp_mail_from', $plugin_public, 'set_mail_sender' );
@@ -180,7 +213,7 @@ class WP_Roundhousekick {
 	 *
 	 * @since    1.0.0
 	 */
-	public function run() {
+	public function run(): void {
 		$this->loader->run();
 	}
 
@@ -191,7 +224,7 @@ class WP_Roundhousekick {
 	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
 	 */
-	public function get_wp_roundhousekick() {
+	public function get_wp_roundhousekick(): string {
 		return $this->wp_roundhousekick;
 	}
 
@@ -201,7 +234,7 @@ class WP_Roundhousekick {
 	 * @since     1.0.0
 	 * @return    WP_Roundhousekick_Loader    Orchestrates the hooks of the plugin.
 	 */
-	public function get_loader() {
+	public function get_loader(): WP_Roundhousekick_Loader {
 		return $this->loader;
 	}
 
@@ -211,7 +244,7 @@ class WP_Roundhousekick {
 	 * @since     1.0.0
 	 * @return    string    The version number of the plugin.
 	 */
-	public function get_version() {
+	public function get_version(): string {
 		return $this->version;
 	}
 }
