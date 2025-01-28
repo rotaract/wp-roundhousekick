@@ -62,6 +62,6 @@ class WP_Roundhousekick_Public {
 	 * @since    1.0.0
 	 */
 	public function set_mail_sender(): string {
-		return WP_Roundhousekick_Mailer::get_mail_sender();
+		return get_site_option( 'mailer_address', WP_Roundhousekick_Mailer::get_mail_sender() );
 	}
 }
