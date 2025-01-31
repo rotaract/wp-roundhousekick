@@ -32,9 +32,9 @@ class WP_Roundhousekick_Deactivator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function deactivate() {
-//		require_once plugin_dir_path( __DIR__ ) . 'admin/class-wp-roundhousekick-admin.php';
-//
-//		WP_Roundhousekick_Admin::um_refilter_roles();
+	public static function deactivate(): void {
+		require_once plugin_dir_path( __DIR__ ) . 'features/unfilter/class-wp-roundhousekick-unfilter.php';
+
+		WP_Roundhousekick_Unfilter::set_unfilter_roles();
 	}
 }

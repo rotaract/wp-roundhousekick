@@ -32,9 +32,9 @@ class WP_Roundhousekick_Activator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function activate() {
-//		require_once plugin_dir_path( __DIR__ ) . 'admin/class-wp-roundhousekick-admin_unfiltered_mu.php';
-//
-//		WP_Roundhousekick_Admin_Unfiltered_MU::um_unfilter_roles();
+	public static function activate(): void {
+		require_once plugin_dir_path( __DIR__ ) . 'features/unfilter/class-wp-roundhousekick-unfilter.php';
+
+		WP_Roundhousekick_Unfilter::set_unfilter_roles( 'administrator', 'editor' );
 	}
 }

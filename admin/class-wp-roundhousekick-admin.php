@@ -58,17 +58,22 @@ class WP_Roundhousekick_Admin {
 
 	/**
 	 * Adds setting fields for this plugin.
+	 *
+	 * @since    1.1.0
 	 */
-	public function register_network_settings(): void {
+	public function action_register_network_settings(): void {
 
 		// Register our settings by feature.
 		WP_Roundhousekick_Mailer::register_network_settings();
+		WP_Roundhousekick_Unfilter::register_network_settings();
 	}
 
 	/**
 	 * Adds setting menu and submenu page for this plugin.
+	 *
+	 * @since    1.1.0
 	 */
-	public function network_settings_page(): void {
+	public function action_network_settings_page(): void {
 
 		add_menu_page(
 			'Rotaract',
@@ -80,13 +85,58 @@ class WP_Roundhousekick_Admin {
 		);
 
 		WP_Roundhousekick_Mailer::network_settings_page();
+		WP_Roundhousekick_Unfilter::network_settings_page();
 	}
 
 	/**
 	 * Handle network_admin_edit_mailer hook.
+	 *
+	 * @since    1.1.0
 	 */
-	public function network_admin_edit_mailer(): void {
+	public function action_network_admin_edit_mailer(): void {
 
 		WP_Roundhousekick_Mailer::save_settings();
+	}
+
+	/**
+	 * Handle network_admin_edit_unfilter hook.
+	 *
+	 * @since    1.1.0
+	 */
+	public function action_network_admin_edit_unfilter(): void {
+
+		WP_Roundhousekick_Unfilter::save_settings();
+	}
+
+	/**
+	 * Handle init hook.
+	 *
+	 * @since    1.1.0
+	 */
+	public function action_init(): void {
+
+		WP_Roundhousekick_Unfilter::um_kses_init();
+	}
+
+	/**
+	 * Handle set_current_user hook.
+	 *
+	 * @since    1.1.0
+	 */
+	public function action_set_current_user(): void {
+
+		WP_Roundhousekick_Unfilter::um_kses_init();
+	}
+
+	/**
+	 * Handle map_meta_cap hook.
+	 *
+	 * @since    1.1.0
+	 * @param string $caps Caps.
+	 * @param string $cap  Cap.
+	 */
+	public function filter_map_meta_cap( $caps, $cap ): array|string {
+
+		return WP_Roundhousekick_Unfilter::um_unfilter_multisite( $caps, $cap );
 	}
 }

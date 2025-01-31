@@ -148,7 +148,7 @@ class WP_Roundhousekick {
 		/**
 		 * The class responsible for Unfiltered MU feature.
 		 */
-//		require_once plugin_dir_path( __DIR__ ) . 'features/mailer/class-wp-roundhousekick-admin-unfiltered-mu.php';
+		require_once plugin_dir_path( __DIR__ ) . 'features/unfilter/class-wp-roundhousekick-unfilter.php';
 	}
 
 	/**
@@ -176,23 +176,20 @@ class WP_Roundhousekick {
 	private function define_admin_hooks(): void {
 		$plugin_admin = new WP_Roundhousekick_Admin( $this->get_wp_roundhousekick(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_network_settings' );
-		$this->loader->add_action( 'network_admin_menu', $plugin_admin, 'network_settings_page' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'action_register_network_settings' );
+		$this->loader->add_action( 'network_admin_menu', $plugin_admin, 'action_network_settings_page' );
 
 		/*
 		 * Feature: Mailer
 		 */
-		$this->loader->add_action( 'network_admin_edit_mailer', $plugin_admin, 'network_admin_edit_mailer' );
+		$this->loader->add_action( 'network_admin_edit_mailer', $plugin_admin, 'action_network_admin_edit_mailer' );
 
 		/*
-		 * Feature: Unfiltered MU
+		 * Feature: Unfilter
 		 */
-		//      $this->loader->add_action( 'init', $plugin_admin, 'um_kses_init', 11 );
-		//      $this->loader->add_action( 'set_current_user', $plugin_admin, 'um_kses_init', 11 );
-		//      if ( str_contains( __FILE__, WPMU_PLUGIN_DIR ) ) {
-		//          $this->loader->add_action( 'init', $plugin_admin, 'um_unfilter_roles_one_time', 1 );
-		//      }
-		//      $this->loader->add_filter( 'map_meta_cap', $plugin_admin, 'um_unfilter_multisite', 10, 2 );
+		$this->loader->add_action( 'network_admin_edit_unfilter', $plugin_admin, 'action_network_admin_edit_unfilter' );
+		$this->loader->add_action( 'init', $plugin_admin, 'action_init', 11 );
+		$this->loader->add_action( 'set_current_user', $plugin_admin, 'action_set_current_user', 11 );
 	}
 
 	/**
