@@ -3,7 +3,6 @@
 // SPDX-FileCopyrightText: 2025 Niklas A. Zbick
 //
 // SPDX-License-Identifier: EUPL-1.2
-use JetBrains\PhpStorm\NoReturn;
 
 /**
  * The unfilter-feature-specific functionality of the plugin.
