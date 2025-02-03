@@ -21,3 +21,9 @@ insert_final_newline = false
 indent_style = space
 indent_size = 2
 trim_trailing_whitespace = false
+
+[*.{mo,po,pot}]
+indent_style = unset
+indent_size = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
