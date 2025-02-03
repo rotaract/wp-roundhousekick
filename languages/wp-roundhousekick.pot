@@ -1,5 +1,7 @@
-# Copyright (C) 2025 Niklas A. Zbick
-# This file is distributed under the EUPL-1.2.
+# SPDX-FileCopyrightText: 2025 Niklas A. Zbick
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
 msgid ""
 msgstr ""
 "Project-Id-Version: Rotaract WordPress Roundhousekick 1.1.0\n"
