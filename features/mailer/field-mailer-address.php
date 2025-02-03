@@ -19,3 +19,4 @@
 ?>
 
 <input type="email" id="wp_roundhousekick_mailer_address" class="regular-text" name="mailer_address" value="<?php echo esc_attr( $mailer_address ); ?>" required>
+<p class="description"><?php esc_html_e( 'Set the sender address for all outgoing e-mails here.', 'wp-roundhousekick' ); ?></p>

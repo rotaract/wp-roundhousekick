@@ -79,7 +79,7 @@ class WP_Roundhousekick_Admin {
 			'Rotaract',
 			'Rotaract',
 			'manage_network_options',
-			'rotaract',
+			'wp_roundhousekick_mailer',
 			'',
 			plugins_url( 'images/wheel.svg', __DIR__ ),
 		);

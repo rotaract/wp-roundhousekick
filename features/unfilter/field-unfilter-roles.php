@@ -29,4 +29,5 @@
 	<?php echo esc_html( translate_user_role( $role['name'] ) ); ?>
 </label><br>
 <?php endforeach; ?>
+<p class="description"><?php esc_html_e( 'Specify which user roles receive the unfiltered_html right.', 'wp-roundhousekick' ); ?></p>
 </fieldset>

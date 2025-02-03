@@ -22,9 +22,9 @@ class WP_Roundhousekick_Mailer {
 		if ( empty( $GLOBALS['network_admin_page_hooks']['rotaract'] ) ) {
 
 			add_submenu_page(
-				'rotaract',
-				__( 'Mail Settings', 'wp-roundhousekick' ),
-				__( 'Mail Settings', 'wp-roundhousekick' ),
+				'wp_roundhousekick_mailer',
+				__( 'Email Settings', 'wp-roundhousekick' ),
+				__( 'Email Settings', 'wp-roundhousekick' ),
 				'manage_network_options',
 				'wp_roundhousekick_mailer',
 				array( __CLASS__, 'page_output' ),
@@ -46,7 +46,7 @@ class WP_Roundhousekick_Mailer {
 		// Register our settings.
 		add_settings_section(
 			'wp_roundhousekick_mailer',
-			__( 'Email Address', 'wp-roundhousekick' ),
+			__( 'Global Sender', 'wp-roundhousekick' ),
 			'',
 			'wp_roundhousekick_mailer'
 		);
@@ -63,7 +63,7 @@ class WP_Roundhousekick_Mailer {
 
 		add_settings_field(
 			'wp_roundhousekick_mailer_address',
-			__( 'Address', 'wp-roundhousekick' ),
+			__( 'Email Address', 'wp-roundhousekick' ),
 			array( __CLASS__, 'mailer_address_field' ),
 			'wp_roundhousekick_mailer',
 			'wp_roundhousekick_mailer',

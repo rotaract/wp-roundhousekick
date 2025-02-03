@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Rotaract WordPress Roundhousekick 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-"
 "roundhousekick\n"
-"POT-Creation-Date: 2025-02-03T11:25:55+00:00\n"
-"PO-Revision-Date: 2025-02-03 12:28+0100\n"
+"POT-Creation-Date: 2025-02-03T13:43:56+00:00\n"
+"PO-Revision-Date: 2025-02-03 14:49+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -47,29 +47,39 @@ msgstr ""
 
 #: features/mailer/class-wp-roundhousekick-mailer.php:26
 #: features/mailer/class-wp-roundhousekick-mailer.php:27
-msgid "Mail Settings"
+#: features/mailer/page-mailer.php:22
+msgid "Email Settings"
 msgstr "E-Mail-Einstellungen"
 
 #: features/mailer/class-wp-roundhousekick-mailer.php:49
-msgid "Email Address"
-msgstr "E-Mail-Adresse"
+msgid "Global Sender"
+msgstr "Globaler Absender"
 
 #: features/mailer/class-wp-roundhousekick-mailer.php:66
-msgid "Address"
-msgstr "Adresse"
+msgid "Email Address"
+msgstr "E-Mail-Adresse"
 
 #: features/mailer/class-wp-roundhousekick-mailer.php:91
 #: features/unfilter/class-wp-roundhousekick-unfilter.php:85
 msgid "Settings Saved"
 msgstr "Einstellungen gespeichert"
 
+#: features/mailer/field-mailer-address.php:22
+msgid "Set the sender address for all outgoing e-mails here."
+msgstr "Stelle hier die Absender-Adresse für alle ausgehenden E-Mails ein."
+
 #: features/unfilter/class-wp-roundhousekick-unfilter.php:28
 #: features/unfilter/class-wp-roundhousekick-unfilter.php:29
+#: features/unfilter/page-unfilter.php:22
 msgid "Unfilter"
-msgstr "Unfilter"
+msgstr ""
 
 #: features/unfilter/class-wp-roundhousekick-unfilter.php:47
 #: features/unfilter/class-wp-roundhousekick-unfilter.php:57
 #: features/unfilter/class-wp-roundhousekick-unfilter.php:63
-msgid "Role"
-msgstr "Benutzerrolle"
+msgid "Roles"
+msgstr "Benutzerrollen"
+
+#: features/unfilter/field-unfilter-roles.php:32
+msgid "Specify which user roles receive the unfiltered_html right."
+msgstr "Lege fest, welche Benutzerrollen das unfiltered_html Recht erhalten."

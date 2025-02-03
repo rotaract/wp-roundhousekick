@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-03T11:25:55+00:00\n"
+"POT-Creation-Date: 2025-02-03T13:48:53+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: wp-roundhousekick\n"
@@ -41,15 +41,16 @@ msgstr ""
 
 #: features/mailer/class-wp-roundhousekick-mailer.php:26
 #: features/mailer/class-wp-roundhousekick-mailer.php:27
-msgid "Mail Settings"
+#: features/mailer/page-mailer.php:22
+msgid "Email Settings"
 msgstr ""
 
 #: features/mailer/class-wp-roundhousekick-mailer.php:49
-msgid "Email Address"
+msgid "Global Sender"
 msgstr ""
 
 #: features/mailer/class-wp-roundhousekick-mailer.php:66
-msgid "Address"
+msgid "Email Address"
 msgstr ""
 
 #: features/mailer/class-wp-roundhousekick-mailer.php:91
@@ -57,13 +58,22 @@ msgstr ""
 msgid "Settings Saved"
 msgstr ""
 
+#: features/mailer/field-mailer-address.php:22
+msgid "Set the sender address for all outgoing e-mails here."
+msgstr ""
+
 #: features/unfilter/class-wp-roundhousekick-unfilter.php:28
 #: features/unfilter/class-wp-roundhousekick-unfilter.php:29
+#: features/unfilter/page-unfilter.php:22
 msgid "Unfilter"
 msgstr ""
 
 #: features/unfilter/class-wp-roundhousekick-unfilter.php:47
 #: features/unfilter/class-wp-roundhousekick-unfilter.php:57
 #: features/unfilter/class-wp-roundhousekick-unfilter.php:63
-msgid "Role"
+msgid "Roles"
+msgstr ""
+
+#: features/unfilter/field-unfilter-roles.php:32
+msgid "Specify which user roles receive the unfiltered_html right."
 msgstr ""

@@ -18,10 +18,13 @@
 
 ?>
 
-<form method="post" action="<?= add_query_arg( 'action', 'mailer', 'edit.php' ) ?>">
-	<?php
-		settings_fields( 'wp_roundhousekick' );
-		do_settings_sections( 'wp_roundhousekick_mailer' );
-		submit_button();
-	?>
-</form>
+<div class="wrap">
+	<h1><?php esc_html_e( 'Email Settings', 'wp-roundhousekick' ); ?></h1>
+	<form method="post" action="<?php echo add_query_arg( 'action', 'mailer', 'edit.php' ); ?>">
+		<?php
+			settings_fields( 'wp_roundhousekick' );
+			do_settings_sections( 'wp_roundhousekick_mailer' );
+			submit_button();
+		?>
+	</form>
+</div>

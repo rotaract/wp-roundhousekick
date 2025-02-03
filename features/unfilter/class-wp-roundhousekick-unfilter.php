@@ -24,7 +24,7 @@ class WP_Roundhousekick_Unfilter {
 		if ( empty( $GLOBALS['network_admin_page_hooks']['rotaract'] ) ) {
 
 			add_submenu_page(
-				'rotaract',
+				'wp_roundhousekick_mailer',
 				__( 'Unfilter', 'wp-roundhousekick' ),
 				__( 'Unfilter', 'wp-roundhousekick' ),
 				'manage_network_options',
@@ -44,7 +44,7 @@ class WP_Roundhousekick_Unfilter {
 
 		add_settings_section(
 			'wp_roundhousekick_unfilter',
-			__( 'Role', 'wp-roundhousekick' ),
+			__( 'Roles', 'wp-roundhousekick' ),
 			'',
 			'wp_roundhousekick_unfilter'
 		);
@@ -54,13 +54,13 @@ class WP_Roundhousekick_Unfilter {
 			'unfilter_roles',
 			array(
 				'type'  => 'array',
-				'label' => __( 'Role', 'wp-roundhousekick' ),
+				'label' => __( 'Roles', 'wp-roundhousekick' ),
 			)
 		);
 
 		add_settings_field(
 			'wp_roundhousekick_unfilter_address',
-			__( 'Role', 'wp-roundhousekick' ),
+			__( 'Roles', 'wp-roundhousekick' ),
 			array( __CLASS__, 'unfilter_roles_field' ),
 			'wp_roundhousekick_unfilter',
 			'wp_roundhousekick_unfilter',
