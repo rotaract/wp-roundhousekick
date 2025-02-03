@@ -23,8 +23,8 @@ class WP_Roundhousekick_Mailer {
 
 			add_submenu_page(
 				'rotaract',
-				'Mailer',
-				'Mailer',
+				__( 'Mail Settings', 'wp-roundhousekick' ),
+				__( 'Mail Settings', 'wp-roundhousekick' ),
 				'manage_network_options',
 				'wp_roundhousekick_mailer',
 				array( __CLASS__, 'page_output' ),
