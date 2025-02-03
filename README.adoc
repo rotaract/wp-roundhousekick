@@ -48,9 +48,16 @@ This library itself by default uses the MTA at port 25 on `localhost`.
 
 .Solution
 The domain of the sending email address is set to the domain of the main site of the multi-site network.
-Alternatively it can be overwritten via a config Parameter
+Alternatively it can be overwritten via a config Parameter.
 
-=== Unfiltered MU
+If you want to use a config parameter, add this to `wp-config.php`:
+
+[source,php]
+----
+define( 'MAILER_ADDRESS', 'john.doe@example.com' );
+----
+
+=== Unfilter
 
 Adds the following capabilities to roles "`Administrator`" and "`Editor`" so that content posted by users with those roles is not filtered by KSES; Embeds, Iframe, etc. are preserved:
 

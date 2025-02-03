@@ -101,7 +101,7 @@ class WP_Roundhousekick_Mailer {
 	 * Builds the HTML for the appointments submenu page.
 	 */
 	public static function mailer_address_field(): void {
-		$mailer_address = get_site_option( 'mailer_address', self::get_mail_sender() );
+		$mailer_address = self::get_mail_sender();
 
 		include 'field-mailer-address.php';
 	}
@@ -116,7 +116,7 @@ class WP_Roundhousekick_Mailer {
 		if ( defined( 'MAILER_ADDRESS' ) && MAILER_ADDRESS ) {
 			return MAILER_ADDRESS;
 		}
-		return 'noreply@rotaract.de';
+		return get_site_option( 'mailer_address', 'noreply@rotaract.de' );
 	}
 
 	/**
