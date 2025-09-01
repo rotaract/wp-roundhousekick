@@ -17,7 +17,7 @@ jobs:
     name: runner / yamllint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: yamllint
         uses: reviewdog/action-yamllint@v1
         with:
@@ -27,7 +27,7 @@ jobs:
     name: runner / detect-secrets
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: detect-secrets
         uses: reviewdog/action-detect-secrets@v0
         with:
@@ -37,7 +37,7 @@ jobs:
     name: runner / languagetool
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: languagetool
         uses: reviewdog/action-languagetool@v1
         with:
