@@ -20,7 +20,7 @@
  * Plugin Name:       Rotaract WordPress Roundhousekick
  * Plugin URI:        https://github.com/rotaract/wp-roundhousekick
  * Description:       A WordPress Multisite Plugin for managing everything about Rotaract Germany Website Hosting.
- * Version:           1.1.0
+ * Version:           1.2.0
  * Requires at leat:  6.0
  * Requires PHP:      8.1
  * Author:            Niklas A. Zbick
@@ -42,7 +42,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'WP_ROUNDHOUSEKICK_VERSION', '1.1.0' );
+define( 'WP_ROUNDHOUSEKICK_VERSION', '1.2.0' );
 
 /**
  * The code that runs during plugin activation.

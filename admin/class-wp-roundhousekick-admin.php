@@ -65,6 +65,7 @@ class WP_Roundhousekick_Admin {
 
 		// Register our settings by feature.
 		WP_Roundhousekick_Mailer::register_network_settings();
+		WP_Roundhousekick_Privacy::register_network_settings();
 		WP_Roundhousekick_Unfilter::register_network_settings();
 	}
 
@@ -85,6 +86,7 @@ class WP_Roundhousekick_Admin {
 		);
 
 		WP_Roundhousekick_Mailer::network_settings_page();
+		WP_Roundhousekick_Privacy::network_settings_page();
 		WP_Roundhousekick_Unfilter::network_settings_page();
 	}
 
@@ -96,6 +98,16 @@ class WP_Roundhousekick_Admin {
 	public function action_network_admin_edit_mailer(): void {
 
 		WP_Roundhousekick_Mailer::save_settings();
+	}
+
+	/**
+	 * Handle network_admin_edit_privacy hook.
+	 *
+	 * @since    1.1.0
+	 */
+	public function action_network_admin_edit_privacy(): void {
+
+		WP_Roundhousekick_Privacy::save_settings();
 	}
 
 	/**
@@ -115,6 +127,7 @@ class WP_Roundhousekick_Admin {
 	 */
 	public function action_init(): void {
 
+		WP_Roundhousekick_Privacy::um_kses_init();
 		WP_Roundhousekick_Unfilter::um_kses_init();
 	}
 
@@ -125,6 +138,7 @@ class WP_Roundhousekick_Admin {
 	 */
 	public function action_set_current_user(): void {
 
+		WP_Roundhousekick_Privacy::um_kses_init();
 		WP_Roundhousekick_Unfilter::um_kses_init();
 	}
 
@@ -137,6 +151,7 @@ class WP_Roundhousekick_Admin {
 	 */
 	public function filter_map_meta_cap( $caps, $cap ): array|string {
 
+		return WP_Roundhousekick_Privacy::um_privacy_multisite( $caps, $cap );
 		return WP_Roundhousekick_Unfilter::um_unfilter_multisite( $caps, $cap );
 	}
 }

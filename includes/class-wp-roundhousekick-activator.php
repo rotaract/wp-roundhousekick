@@ -33,8 +33,10 @@ class WP_Roundhousekick_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate(): void {
+		require_once plugin_dir_path( __DIR__ ) . 'features/privacy/class-wp-roundhousekick-privacy.php';
 		require_once plugin_dir_path( __DIR__ ) . 'features/unfilter/class-wp-roundhousekick-unfilter.php';
 
+		WP_Roundhousekick_Privacy::set_privacy_roles( 'administrator' );
 		WP_Roundhousekick_Unfilter::set_unfilter_roles( 'administrator', 'editor' );
 	}
 }
